@@ -21,12 +21,18 @@ SessionLocal = sessionmaker(
     bind=engine
 )
 
-# Parent Class for DB ops -> Tracks subclasses and
-# maps sub class -> tables
-# All tables are stored in Base.metadata
-Base = declarative_base()
 
 def get_db():
+    '''
+    Generator function:
+    call -> next(get_db)
+
+    Returns a session and closes it when used. 
+    Even when an error occurs 
+
+    Return -> Gives a session but doesn't ensures clean up
+    Yield + Try-Finally block -> Gives conn and ensures the connection is closed.
+    '''
     db = SessionLocal()
     try:
         yield db
