@@ -1,4 +1,6 @@
 # Creates the Link class and Table 
+# Map Columns - SQL Alchemy 
+# DB Schema expressed in Python
 
 from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy import func
@@ -9,6 +11,7 @@ class Base(DeclarativeBase):
     pass
 
 # Any Class that inherits Base automatically gets made to table
+# Link class -> Table Link
 class Link(Base):
     __tablename__ = "links"
 

@@ -1,3 +1,5 @@
+# API Layer - POST & GET routes
+# Business logic
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session

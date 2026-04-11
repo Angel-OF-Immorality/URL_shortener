@@ -9,10 +9,15 @@ from pydantic import HttpUrl, BaseModel
 from datetime import datetime
 
 #Validation Models:
+
 class LinkCreate(BaseModel):
+    """
+    Defines what a request must send
+    """
     original_url : HttpUrl
 
 class LinkResponse(BaseModel):
+    """ Defines what gets send back to the request """
     id: int
     original_url: str
     short_code: str
