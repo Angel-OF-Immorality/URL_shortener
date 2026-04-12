@@ -5,6 +5,9 @@
 # DB model may have an hashed PW field. 
 # So we control what goes in and what comes out.
 
+#Models -> How data lives in DB
+#Schema -> How it travels
+
 from pydantic import HttpUrl, BaseModel
 from datetime import datetime
 
