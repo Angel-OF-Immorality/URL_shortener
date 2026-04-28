@@ -8,6 +8,9 @@ from app.routes import links
 app = FastAPI(
     title= "URL Shortner"
 )
+@app.get("/")
+def root():
+    return {"message": "URL Shortener is running", "docs": "/docs"}
 
 Base.metadata.create_all(bind=engine) #looks at each subclass of Base
 # Creates a table for each class if it doesn't exits already
