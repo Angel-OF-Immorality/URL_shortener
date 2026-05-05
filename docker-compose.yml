@@ -11,4 +11,4 @@ services:
     restart: unless-stopped
   
 volumes:
-  db_storage:
+  db_storage:/app/data

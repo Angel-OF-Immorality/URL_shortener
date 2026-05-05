@@ -9,7 +9,7 @@ import os
 # loading environment variables from .env file
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./shortener.db")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./data/shortener.db")
 
 engine = create_engine(
     DATABASE_URL,
