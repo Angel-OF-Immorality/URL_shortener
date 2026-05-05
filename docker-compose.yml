@@ -5,10 +5,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - db_storage:/app/shortner.db
+      - db_storage:/app/data
     env_file:
       - .env
     restart: unless-stopped
   
 volumes:
-  db_storage:/app/data
+  db_storage:\
