@@ -1,0 +1,14 @@
+services: 
+  app:
+    build: .
+    container_name: url-shortener
+    ports:
+      - "8000:8000"
+    volumes:
+      - db_storage:/app/shortner.db
+    env_file:
+      - .env
+    restart: unless-stopped
+  
+volumes:
+  db_storage:

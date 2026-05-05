@@ -1,0 +1,48 @@
+name: CI
+
+on:
+    push:
+        branches: [ '*' ]
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Setup Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.10'
+
+        - name: Install Dependencies
+          run: pip install -r requirements.txt
+
+        - name: Linting with Ruff
+          run: |
+            pip install ruff
+            ruff check
+
+        - name: Install Black and Run a Check
+          run: |
+            pip install black 
+            black --check --diff .
+    
+    security-check:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Setup python
+          uses: actions/setup-python@v4
+          with:
+            python-version: "3.10"
+        - name: Install & Run Security Scanning
+          run: |
+            pip install bandit 
+            bandit -r app/
+        
+
