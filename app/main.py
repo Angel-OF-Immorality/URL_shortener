@@ -5,8 +5,18 @@ from app.database import engine
 from app.models.link import Base
 from app.routes import links
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(title="URL Shortner")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins = ["https://chiragintech.com", "https://www.chiragintech.com"],
+    # allow_origin_regex = "https://.*\.chiragintech\.com", # type: ignore 
+    # allow_credentials = True, # Only True when you are handling auth
+    allow_methods = ['GET', 'POST'],
+    allow_headers = ['Content-Type'],
+)
 
 @app.get("/")
 def root():

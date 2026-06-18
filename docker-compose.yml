@@ -1,9 +1,31 @@
 services: 
-  app:
+  app1:
     build: .
-    container_name: url-shortener
+    container_name: url-shortener-1
     ports:
-      - "8000:8000"
+      - "8001:8000"
+    volumes:
+      - db_storage:/app/data
+    env_file:
+      - .env
+    restart: unless-stopped
+  
+  app2:
+    build: .
+    container_name: url-shortener-2
+    ports:
+      - "8002:8000"
+    volumes:
+      - db_storage:/app/data
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  app3:
+    build: .
+    container_name: url-shortener-3
+    ports:
+      - "8003:8000"
     volumes:
       - db_storage:/app/data
     env_file:

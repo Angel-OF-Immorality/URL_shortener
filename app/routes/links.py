@@ -23,7 +23,7 @@ def generate_short_code(length: int = 6) -> str:
 def create_short_link(
     payload: LinkCreate, db: Session = Depends(get_db)
 ):  # Depends() injects FastAPI dependency
-    # Not needed because of Depends() :
+    # Below Not needed because of Depends() :
     # db = SessionLocal()
     # try:
     #     short_code = generate_short_code(), more code. ...
